@@ -24,7 +24,7 @@
                     <div class="row">
                         @foreach($posts as $post)
                             <div class="col-6">
-                                <div class="card mb-3">
+                                <div class="card mb-3 bg-info">
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
                                             <img src="{{$post->image->url}}" class="card-img">
@@ -57,7 +57,7 @@
                     <div class="row">
                         @foreach($videos as $video)
                             <div class="col-6">
-                                <div class="card mb-3">
+                                <div class="card mb-3 bg-warning">
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
                                             <img src="{{$video->image->url}}" class="card-img">

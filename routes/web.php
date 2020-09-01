@@ -18,24 +18,6 @@ Route::get('/', function () {
     return view('welcome',['users' => $users]);
 });
 
-Route::get('profile/{id}',function($id){
-    $user = App\User::find($id);
-    $posts = $user->posts()->with('category','image','tags')->withCount('comments')->get();
-    $videos = $user->videos()->with('category','image','tags')->withCount('comments')->get();
-    return view('profile',[
-        'user' => $user,
-        'posts' => $posts,
-        'videos' => $videos
-    ]);
-})->name('profile');
+Route::get('/profile/{id}', 'ProfileController@obtenerPerfil')->name('profile');
 
-Route::get('level/{id}',function($id){
-    $level = App\Level::find($id);
-    $posts = $level->posts()->with('category','image','tags')->withCount('comments')->get();
-    $videos = $level->videos()->with('category','image','tags')->withCount('comments')->get();
-    return view('level',[
-        'level' => $level,
-        'posts' => $posts,
-        'videos' => $videos
-    ]);
-})->name('level');
+Route::get('/level/{id}', 'LevelController@obtenerPostOfLevel')->name('level');
